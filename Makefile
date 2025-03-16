@@ -190,11 +190,11 @@ post-extract:
 	# We can't have two submodules with the same origin in GH_TUPLE
 	(cd ${WRKDIR}/edk2-${GH_TAGNAME}/MdeModulePkg/Library/BrotliCustomDecompressLib/brotli && cp -a * ../../../../BaseTools/Source/C/BrotliCompress/brotli)
 .if ${FLAVOR} == bhyve
-	# Add the bhyve logo files
+	# Add the bhyve logo files provided by Michael Dexter <editor@callfortesting.org>
 	( \
 		cd ${WRKDIR}/edk2-${GH_TAGNAME}/OvmfPkg/Bhyve && \
-		cp -a ../../MdeModulePkg/Logo LogoDxe && \
-		cp -f ${FILESDIR}/Logo.bmp LogoDxe/Logo.bmp \
+		${CP} -a ../../MdeModulePkg/Logo LogoDxe && \
+		${CP} -f ${FILESDIR}/Logo.bmp LogoDxe/Logo.bmp \
 	)
 .endif
 
